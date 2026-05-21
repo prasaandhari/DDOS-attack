@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>DDOS Attack</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background: linear-gradient(135deg,#e8f5e9,#ffffff);
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+/* HEADER */
+header{
+background:#1f2937;
+color:white;
+text-align:center;
+padding:20px;
+font-size:26px;
+font-weight:600;
+}
+
+/* NAVBAR */
+nav{
+background:#22c55e;
+display:flex;
+justify-content:center;
+gap:25px;
+padding:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:8px 15px;
+border-radius:6px;
+transition:0.3s;
+}
+
+nav a:hover{
+background:#15803d;
+}
+
+/* BANNER */
+.banner{
+width:90%;
+margin:30px auto;
+}
+
+.banner img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* LOGIN SECTION */
+.container{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.login-card{
+background:white;
+padding:40px;
+width:350px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+text-align:center;
+animation:fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.login-card h2{
+color:#22c55e;
+margin-bottom:20px;
+}
+
+/* INPUT */
+.login-card input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+outline:none;
+transition:0.3s;
+}
+
+.login-card input:focus{
+border-color:#22c55e;
+box-shadow:0 0 5px rgba(34,197,94,0.4);
+}
+
+/* BUTTONS */
+.btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:6px;
+background:#22c55e;
+color:white;
+font-size:15px;
+cursor:pointer;
+margin-top:10px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#15803d;
+}
+
+.reset{
+background:#ef4444;
+}
+
+.reset:hover{
+background:#b91c1c;
+}
+
+/* REGISTER */
+.register{
+margin-top:15px;
+font-size:14px;
+}
+
+.register a{
+color:#22c55e;
+text-decoration:none;
+font-weight:600;
+}
+
+/* FOOTER */
+footer{
+background:#1f2937;
+color:white;
+text-align:center;
+padding:12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+DDOS Attack
+</header>
+
+<nav>
+<a href="/">Homepage</a>
+<a href="/adminlogin">Server</a>
+<a href="/UserLogin">Owner Login</a>
+<a href="/Datauser">User Login</a>
+</nav>
+
+<div class="banner">
+<img src="static/images/1.jpg" alt="Banner">
+</div>
+
+<div class="container">
+
+<div class="login-card">
+
+<h2>User Login</h2>
+
+<form method="post" action="/datauserlogin">
+
+<input type="text" name="uname" placeholder="Enter Username" required>
+
+<input type="password" name="password" placeholder="Enter Password" required>
+
+<button type="submit" class="btn">Login</button>
+<button type="reset" class="btn reset">Cancel</button>
+
+</form>
+
+<div class="register">
+<a href="/datauserregister">New User Registration</a>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Secure Cloud Storage | Green Cybersecurity
+</footer>
+
+</body>
+</html>

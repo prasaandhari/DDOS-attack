@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f3f4f6;
+}
+
+/* HEADER */
+
+header{
+background:#1f2937;
+color:white;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:600;
+}
+
+/* NAVBAR */
+
+nav{
+background:#22c55e;
+display:flex;
+justify-content:center;
+gap:30px;
+padding:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+font-weight:500;
+padding:6px 14px;
+border-radius:5px;
+}
+
+nav a:hover{
+background:#15803d;
+}
+
+/* LOGIN BOX */
+
+.container{
+display:flex;
+justify-content:center;
+align-items:center;
+height:70vh;
+}
+
+.login-box{
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+width:350px;
+}
+
+.login-box h2{
+text-align:center;
+margin-bottom:25px;
+color:#16a34a;
+}
+
+/* INPUT */
+
+input[type=text], input[type=password]{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+font-size:15px;
+}
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:10px;
+background:#22c55e;
+border:none;
+color:white;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#15803d;
+}
+
+.reset{
+background:#9ca3af;
+margin-top:8px;
+}
+
+.reset:hover{
+background:#6b7280;
+}
+
+/* FOOTER */
+
+footer{
+background:#1f2937;
+color:white;
+text-align:center;
+padding:15px;
+position:fixed;
+bottom:0;
+width:100%;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+DDOS Attack
+</header>
+
+<nav>
+<a href="/">Home</a>
+<a href="/adminlogin">Server</a>
+<a href="/UserLogin">Owner Login</a>
+    <a href="/Datauser">User Login</a>
+
+</nav>
+
+<div class="container">
+
+<div class="login-box">
+
+<h2>Admin Login</h2>
+
+<form method="post" action="/adminlogin">
+
+<input type="text" name="uname" placeholder="Enter Username" required>
+
+<input type="password" name="password" placeholder="Enter Password" required>
+
+<button type="submit">Login</button>
+
+<button type="reset" class="reset">Cancel</button>
+
+</form>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Secure Cloud Storage | Green Cybersecurity
+</footer>
+
+</body>
+</html>

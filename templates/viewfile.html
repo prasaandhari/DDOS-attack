@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Uploaded Files</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+/* HEADER */
+header{
+background:#1f2937;
+color:white;
+text-align:center;
+padding:18px;
+font-size:24px;
+font-weight:600;
+}
+
+/* NAVBAR */
+nav{
+background:#22c55e;
+display:flex;
+justify-content:center;
+gap:25px;
+padding:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:8px 15px;
+border-radius:6px;
+transition:0.3s;
+}
+
+nav a:hover{
+background:#15803d;
+}
+
+/* BANNER */
+.banner{
+width:90%;
+margin:20px auto;
+}
+
+.banner img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* CONTAINER */
+.container{
+width:90%;
+margin:auto;
+margin-top:20px;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.title{
+text-align:center;
+color:#22c55e;
+margin-bottom:20px;
+font-size:22px;
+font-weight:600;
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#22c55e;
+color:white;
+padding:12px;
+}
+
+td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+background:#f1f5f9;
+}
+
+/* BUTTONS */
+.btn{
+padding:6px 12px;
+border-radius:6px;
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+.download{
+background:#3b82f6;
+}
+
+.download:hover{
+background:#1d4ed8;
+}
+
+.check{
+background:#f59e0b;
+}
+
+.check:hover{
+background:#d97706;
+}
+
+/* FOOTER */
+footer{
+margin-top:30px;
+background:#1f2937;
+color:white;
+text-align:center;
+padding:12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+Secure File Storage Dashboard
+</header>
+
+<nav>
+<a href="/userhome">Home</a>
+<a href="/fileupload">Upload File</a>
+<a href="/viewfile">View File</a>
+    <a href="/userrequest">Requests</a>
+<a href="/">Logout</a>
+</nav>
+
+<div class="banner">
+<img src="static/images/1.jpg" alt="Banner">
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="title">Uploaded Files</div>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>File Name</th>
+<th>File</th>
+<th>Details</th>
+<th>Download</th>
+<th>Check File</th>
+</tr>
+
+{% for item in data %}
+
+<tr>
+<td>{{item[0]}}</td>
+<td>{{item[1]}}</td>
+<td>{{item[4]}}</td>
+<td>{{item[2]}}</td>
+
+<td>
+<a href="/dwonload1?pid={{item[0]}}" class="btn download">Download</a>
+</td>
+
+<td>
+<a href="/checkfile?id={{item[4]}}" class="btn check">Check</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Secure Cloud Storage | Green Cybersecurity
+</footer>
+
+</body>
+</html>

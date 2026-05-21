@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Upload File</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+/* HEADER */
+header{
+background:#1f2937;
+color:white;
+text-align:center;
+padding:18px;
+font-size:24px;
+font-weight:600;
+}
+
+/* NAVBAR */
+nav{
+background:#22c55e;
+display:flex;
+justify-content:center;
+gap:25px;
+padding:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:8px 15px;
+border-radius:6px;
+transition:0.3s;
+}
+
+nav a:hover{
+background:#15803d;
+}
+
+/* BANNER */
+.banner{
+width:90%;
+margin:20px auto;
+}
+
+.banner img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* CONTAINER */
+.container{
+display:flex;
+justify-content:center;
+margin-top:30px;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:35px;
+width:400px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* TITLE */
+.card h2{
+text-align:center;
+color:#22c55e;
+margin-bottom:20px;
+}
+
+/* FORM */
+.form-group{
+margin-bottom:18px;
+}
+
+label{
+font-weight:600;
+font-size:14px;
+}
+
+input[type=text],
+textarea{
+width:100%;
+padding:10px;
+margin-top:6px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+textarea{
+height:90px;
+resize:none;
+}
+
+/* FILE UPLOAD BOX */
+.upload-box{
+border:2px dashed #22c55e;
+padding:20px;
+text-align:center;
+border-radius:10px;
+margin-top:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.upload-box:hover{
+background:#f0fdf4;
+}
+
+.upload-box input{
+display:none;
+}
+
+/* BUTTONS */
+.btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+margin-top:10px;
+transition:0.3s;
+}
+
+.submit{
+background:#22c55e;
+color:white;
+}
+
+.submit:hover{
+background:#15803d;
+}
+
+.reset{
+background:#ef4444;
+color:white;
+}
+
+.reset:hover{
+background:#b91c1c;
+}
+
+/* FOOTER */
+footer{
+margin-top:40px;
+background:#1f2937;
+color:white;
+text-align:center;
+padding:12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+Secure File Storage Dashboard
+</header>
+
+<nav>
+<a href="/userhome">Home</a>
+<a href="/fileupload">Upload File</a>
+<a href="/viewfile">View File</a>
+    <a href="/userrequest">Requests</a>
+<a href="/">Logout</a>
+</nav>
+
+<div class="banner">
+<img src="static/images/1.jpg" alt="Banner">
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>📁 Upload File</h2>
+
+<form action="/upload1" method="post" enctype="multipart/form-data">
+
+<div class="form-group">
+<label>Name</label>
+<input type="text" name="name" placeholder="Enter file name" required>
+</div>
+
+<div class="form-group">
+<label>Select File</label>
+
+<label class="upload-box">
+📂 Click to Upload File
+<input type="file" name="file" required>
+</label>
+
+</div>
+
+<div class="form-group">
+<label>Details</label>
+<textarea name="details" placeholder="Enter file description..."></textarea>
+</div>
+
+<button type="submit" class="btn submit">Upload File</button>
+<button type="reset" class="btn reset">Reset</button>
+
+</form>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Secure Cloud Storage | Green Cybersecurity
+</footer>
+
+</body>
+</html>

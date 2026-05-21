@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>User Requests</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f1f5f9;
+}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#1f2937,#111827);
+color:white;
+text-align:center;
+padding:20px;
+font-size:26px;
+font-weight:600;
+}
+
+/* NAVBAR */
+nav{
+background:#22c55e;
+display:flex;
+justify-content:center;
+gap:20px;
+padding:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:8px 15px;
+border-radius:6px;
+}
+
+nav a:hover{
+background:#15803d;
+}
+
+/* BANNER */
+.banner{
+width:90%;
+margin:20px auto;
+}
+
+.banner img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* CONTAINER */
+.container{
+width:92%;
+margin:auto;
+margin-top:20px;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.title{
+text-align:center;
+color:#22c55e;
+margin-bottom:20px;
+font-size:24px;
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#22c55e;
+color:white;
+padding:12px;
+}
+
+td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+background:#f9fafb;
+}
+
+/* STATUS */
+.status{
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+}
+
+.pending{background:#facc15;}
+.approved{background:#22c55e;color:white;}
+.rejected{background:#ef4444;color:white;}
+
+/* BUTTONS */
+.btn{
+padding:6px 12px;
+border-radius:6px;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.accept{background:#22c55e;}
+.reject{background:#ef4444;}
+
+/* POPUP */
+#popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+}
+
+.popup-box{
+background:white;
+width:350px;
+padding:20px;
+border-radius:10px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+}
+
+footer{
+margin-top:30px;
+background:#111827;
+color:white;
+text-align:center;
+padding:12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>📁 Secure File Storage - Admin Dashboard</header>
+
+<nav>
+<a href="/userhome">Home</a>
+<a href="/fileupload">File Upload</a>
+<a href="/viewfile">Files</a>
+<a href="/userrequest">Requests</a>
+<a href="/">Logout</a>
+</nav>
+
+<div class="banner">
+<img src="static/images/1.jpg">
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="title">User File Requests</div>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>File Name</th>
+<th>File</th>
+<th>Details</th>
+<th>User</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+{% for item in data %}
+
+<tr>
+<td>{{item[0]}}</td>
+<td>{{item[1]}}</td>
+<td>{{item[4]}}</td>
+<td>{{item[2]}}</td>
+<td>{{item[7]}}</td>
+
+<td>
+<span class="status pending">Pending</span>
+</td>
+
+<td>
+<button onclick="checkAndConfirm('{{item[0]}}')" class="btn accept">✔ Accept</button>
+<a href="/reject?pid={{item[0]}}" class="btn reject">✖ Reject</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+<!-- POPUP -->
+
+<div id="popup">
+<div class="popup-box">
+
+<h3 id="popupText"></h3>
+
+<br>
+
+<button id="confirmBtn" class="btn accept">Confirm</button> <button onclick="closePopup()" class="btn reject">Cancel</button>
+
+</div>
+</div>
+
+<footer>
+© 2026 Secure Cloud Storage | Admin Panel
+</footer>
+
+<script>
+
+let currentId = "";
+
+function checkAndConfirm(id){
+    currentId = id;
+
+    fetch('/check_unique?id=' + id)
+    .then(res => res.json())
+    .then(data => {
+
+        document.getElementById("popup").style.display="block";
+
+        if(data.status === "valid"){
+            document.getElementById("popupText").innerHTML="✅ ID Match. Accept request?";
+            document.getElementById("confirmBtn").onclick=function(){
+                window.location.href="/accept?pid="+currentId;
+            }
+        }else{
+            document.getElementById("popupText").innerHTML="🚨 Attacker Detected!";
+            document.getElementById("confirmBtn").onclick=function(){
+                window.location.href="/reject?pid="+currentId;
+            }
+        }
+
+    });
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>

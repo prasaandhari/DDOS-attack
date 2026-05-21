@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Secure File Storage - Owner Panel</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+/* HEADER */
+
+header{
+background:#1f2937;
+color:white;
+text-align:center;
+padding:20px;
+font-size:28px;
+font-weight:600;
+}
+
+/* MENU */
+
+nav{
+background:#22c55e;
+display:flex;
+justify-content:center;
+gap:25px;
+padding:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+padding:6px 15px;
+border-radius:6px;
+}
+
+nav a:hover{
+background:#15803d;
+}
+
+/* BANNER */
+
+.banner{
+width:90%;
+margin:auto;
+margin-top:25px;
+}
+
+.banner img{
+width:100%;
+height:280px;
+border-radius:10px;
+object-fit:cover;
+}
+
+/* CONTENT */
+
+.container{
+width:90%;
+margin:auto;
+margin-top:30px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* TABLE */
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#22c55e;
+color:white;
+padding:10px;
+}
+
+td{
+padding:10px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+tr:hover{
+background:#f1f5f9;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:40px;
+background:#1f2937;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+DDOS Attack
+</header>
+
+<nav>
+
+<a href="/userhome">Homepage</a>
+<a href="/fileupload">File Upload</a>
+<a href="/viewfile">View File</a>
+    <a href="/userrequest">Requests</a>
+
+<a href="/">Logout</a>
+
+</nav>
+
+<div class="banner">
+<img src="static/images/1.jpg">
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>User Details</h2>
+
+<table>
+
+<tr>
+<th>Sl.No</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Age</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Address</th>
+</tr>
+
+{% for item in data %}
+
+<tr>
+<td>{{item[0]}}</td>
+<td>{{item[1]}}</td>
+<td>{{item[2]}}</td>
+<td>{{item[3]}}</td>
+<td>{{item[4]}}</td>
+<td>{{item[5]}}</td>
+<td>{{item[6]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Secure File Storage | Green Cybersecurity System
+</footer>
+
+</body>
+</html>
